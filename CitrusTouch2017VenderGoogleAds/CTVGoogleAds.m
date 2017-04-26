@@ -1,8 +1,8 @@
 //
 //  CTVGoogleAds.m
-//  HanayuAccountBookPod
+//  CitrusTouch2017
 //
-//  Created by kouhei.takemoto on 2017/03/28.
+//  Created by take64 on 2017/03/28.
 //  Copyright © 2017年 citrus.live. All rights reserved.
 //
 
@@ -55,9 +55,9 @@
 }
 
 // setup
-+ (void)setupAdUnitID:(NSString *)_adUnitID;
+- (void)setupAdUnitID:(NSString *)_adUnitID;
 {
-    [[self sharedService] setAdUnitID:_adUnitID];
+    [[CTVGoogleAds sharedService] setAdUnitID:_adUnitID];
 }
 
 
