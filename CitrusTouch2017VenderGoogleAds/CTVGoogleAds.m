@@ -3,7 +3,7 @@
 //  CitrusTouch2017
 //
 //  Created by take64 on 2017/03/28.
-//  Copyright © 2017年 citrus.live. All rights reserved.
+//  Copyright © 2017年 citrus.tk. All rights reserved.
 //
 
 #import "CTVGoogleAds.h"
@@ -52,6 +52,30 @@
     }
     
     return [[self bannerStacks] objectForKey:bannerID];
+}
+
+// バナー広告生成・取得
+- (GADBannerView *)callBannerWithSection:(NSInteger)section rootController:(UIViewController<GADBannerViewDelegate> *)rootController
+{
+    // バナーIDの生成
+    NSString *bannerID = CTStringf(@"%@_banner_%d", NSStringFromClass([rootController class]), @"320x50", section);
+    
+    // ビュー取得
+    GADBannerView *bannerView = [self callBannerID:bannerID];
+    if(bannerView == nil)
+    {
+        // 生成
+        bannerView = [[GADBannerView alloc] initWithAdSize:kGADAdSizeBanner];
+        [bannerView setAdUnitID:[self adUnitID]];
+        [bannerView setDelegate:rootController];
+        [bannerView setRootViewController:rootController];
+        [bannerView loadRequest:[GADRequest request]];
+        
+        // スタック
+        [[self bannerStacks] setObject:bannerView forKey:bannerID];
+    }
+    
+    return bannerView;
 }
 
 // setup

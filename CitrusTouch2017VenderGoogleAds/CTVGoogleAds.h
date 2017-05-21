@@ -3,7 +3,7 @@
 //  CitrusTouch2017
 //
 //  Created by take64 on 2017/03/28.
-//  Copyright © 2017年 citrus.live. All rights reserved.
+//  Copyright © 2017年 citrus.tk. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
@@ -37,6 +37,9 @@
 
 // バナー広告取得
 - (GADBannerView *)callBannerID:(NSString *)bannerID;
+
+// バナー広告生成・取得
+- (GADBannerView *)callBannerWithSection:(NSInteger)section rootController:(UIViewController<GADBannerViewDelegate> *)rootController;
 
 // setup
 - (void)setupAdUnitID:(NSString *)_adUnitID;
